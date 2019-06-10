@@ -1,2 +1,7 @@
 build/
 **/*.user
+DEBUG/
+Release/
+x64/
+.vs/
+.vscode/

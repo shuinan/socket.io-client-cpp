@@ -514,4 +514,21 @@ namespace sio
             m_decode_callback(*p);
         }
     }
+
+	//////////////////////////////////////////////////////////////////////////////
+	std::string from_sio_message(const message& msg) {
+		vector<shared_ptr<const string> > buffers;
+		Document doc;
+		accept_message(msg, doc, doc, buffers);
+
+		StringBuffer buffer;
+		Writer<StringBuffer> writer(buffer);
+		doc.Accept(writer);
+		return std::string(buffer.GetString(), buffer.GetSize());
+	}
+	message::ptr to_sio_message(std::string const& payload) {
+		Document doc;
+		doc.Parse<0>(payload.data());
+		return from_json(doc, vector<shared_ptr<const string> >());
+	}
 }

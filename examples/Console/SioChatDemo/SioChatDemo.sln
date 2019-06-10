@@ -1,20 +1,42 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2047
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SioChatDemo", "SioChatDemo.vcxproj", "{3503FCEB-2C8E-441A-A57C-B9DEE9171CF4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Itanium = Debug|Itanium
 		Debug|Win32 = Debug|Win32
+		Debug|x64 = Debug|x64
+		Release|Itanium = Release|Itanium
 		Release|Win32 = Release|Win32
+		Release|x64 = Release|x64
+		win64|Itanium = win64|Itanium
+		win64|Win32 = win64|Win32
+		win64|x64 = win64|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3503FCEB-2C8E-441A-A57C-B9DEE9171CF4}.Debug|Itanium.ActiveCfg = Debug|Win32
 		{3503FCEB-2C8E-441A-A57C-B9DEE9171CF4}.Debug|Win32.ActiveCfg = Debug|Win32
 		{3503FCEB-2C8E-441A-A57C-B9DEE9171CF4}.Debug|Win32.Build.0 = Debug|Win32
+		{3503FCEB-2C8E-441A-A57C-B9DEE9171CF4}.Debug|x64.ActiveCfg = Debug|Win32
+		{3503FCEB-2C8E-441A-A57C-B9DEE9171CF4}.Release|Itanium.ActiveCfg = Release|Win32
 		{3503FCEB-2C8E-441A-A57C-B9DEE9171CF4}.Release|Win32.ActiveCfg = Release|Win32
 		{3503FCEB-2C8E-441A-A57C-B9DEE9171CF4}.Release|Win32.Build.0 = Release|Win32
+		{3503FCEB-2C8E-441A-A57C-B9DEE9171CF4}.Release|x64.ActiveCfg = Release|Win32
+		{3503FCEB-2C8E-441A-A57C-B9DEE9171CF4}.win64|Itanium.ActiveCfg = Release|Win32
+		{3503FCEB-2C8E-441A-A57C-B9DEE9171CF4}.win64|Itanium.Build.0 = Release|Win32
+		{3503FCEB-2C8E-441A-A57C-B9DEE9171CF4}.win64|Win32.ActiveCfg = Release|Win32
+		{3503FCEB-2C8E-441A-A57C-B9DEE9171CF4}.win64|Win32.Build.0 = Release|Win32
+		{3503FCEB-2C8E-441A-A57C-B9DEE9171CF4}.win64|x64.ActiveCfg = Release|Win32
+		{3503FCEB-2C8E-441A-A57C-B9DEE9171CF4}.win64|x64.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {501F13C0-0058-4CE4-9D3A-A539863BAC1B}
 	EndGlobalSection
 EndGlobal

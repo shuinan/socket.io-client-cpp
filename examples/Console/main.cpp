@@ -5,6 +5,7 @@
 //
 
 #include "../../src/sio_client.h"
+#include <nlohmann/json.hpp>
 
 #include <functional>
 #include <iostream>
@@ -111,7 +112,11 @@ MAIN_FUNC
     h.set_open_listener(std::bind(&connection_listener::on_connected, &l));
     h.set_close_listener(std::bind(&connection_listener::on_close, &l,std::placeholders::_1));
     h.set_fail_listener(std::bind(&connection_listener::on_fail, &l));
-    h.connect("http://127.0.0.1:3000");
+    //h.connect("http://rtcengine.dot.cc");
+	//h.connect("https://192.168.20.212:3888");
+	h.connect("http://192.168.20.212:3344");
+
+
     _lock.lock();
     if(!connect_finish)
     {
@@ -175,6 +180,14 @@ Login:
                 goto Login;
             }
             current_socket->emit("new message", line);
+
+/// test json message
+			nlohmann::json data;// = this->authInfo_;
+			data["room"] = "room";
+			data["user"] = "user";
+			data["appkey"] = "appkey";			
+			current_socket->emit("new message", data.dump());
+
             _lock.lock();
             EM("\t\t\t"<<line<<":"<<"You");
             _lock.unlock();
