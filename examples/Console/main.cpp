@@ -4,6 +4,9 @@
 //  Created by Melo Yao on 3/24/15.
 //
 
+#include <locale>
+#include <codecvt>
+
 #include "../../src/sio_client.h"
 #include <nlohmann/json.hpp>
 
@@ -109,13 +112,24 @@ MAIN_FUNC
     sio::client h;
     connection_listener l(h);
     
+	std::wstring addr;
+	if (argc >= 2) {
+		addr = argv[1];
+	}
+	else {
+		//addr = _T("http://rtcengine.dot.cc");
+		//addr = _T("https://192.168.125.128:3888");
+		//addr = _T("http://192.168.20.212:3344");
+		addr = _T("https://rtc.xueersi.com");
+		//addr = _T("wss://echo.websocket.org");
+		//addr = _T("wss://socket-io-chat.now.sh");
+	}
     h.set_open_listener(std::bind(&connection_listener::on_connected, &l));
     h.set_close_listener(std::bind(&connection_listener::on_close, &l,std::placeholders::_1));
-    h.set_fail_listener(std::bind(&connection_listener::on_fail, &l));
-    //h.connect("http://rtcengine.dot.cc");
-	//h.connect("https://192.168.20.212:3888");
-	h.connect("http://192.168.20.212:3344");
-
+    h.set_fail_listener(std::bind(&connection_listener::on_fail, &l));   
+	std::wstring_convert<std::codecvt_utf8<wchar_t>> conv;
+	h.connect(conv.to_bytes(addr));
+	
 
     _lock.lock();
     if(!connect_finish)

@@ -570,18 +570,35 @@ failed:
 #if SIO_TLS
     client_impl::context_ptr client_impl::on_tls_init(connection_hdl conn)
     {
+	//#if 0
 		/// change from tlsv1 to tlsv12
         context_ptr ctx = context_ptr(new  boost::asio::ssl::context(boost::asio::ssl::context::tlsv12));
         boost::system::error_code ec;
         ctx->set_options(boost::asio::ssl::context::default_workarounds |
                              boost::asio::ssl::context::no_sslv2 |
+							boost::asio::ssl::context::no_sslv3 |
                              boost::asio::ssl::context::single_dh_use,ec);
         if(ec)
         {
             cerr<<"Init tls failed,reason:"<< ec.message()<<endl;
         }
-        
-        return ctx;
+	//#endif
+	#if 0
+		context_ptr ctx = std::make_shared<boost::asio::ssl::context>(boost::asio::ssl::context::sslv23);
+
+		try {
+			ctx->set_options(boost::asio::ssl::context::default_workarounds |
+							 boost::asio::ssl::context::no_sslv2 |
+							 boost::asio::ssl::context::no_sslv3 |
+							 boost::asio::ssl::context::single_dh_use);
+			//ctx->set_verify_mode(boost::asio::ssl::verify_none);
+		}
+		catch (std::exception &e) {
+			std::cout << "Error in context pointer: " << e.what() << std::endl;
+		}
+	#endif
+		return ctx;       
+	
     }
 #endif
 

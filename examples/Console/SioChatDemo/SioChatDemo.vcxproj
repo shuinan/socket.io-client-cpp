@@ -55,16 +55,17 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>_SCL_SECURE_NO_WARNINGS;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions);_WEBSOCKETPP_NOEXCEPT_;</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_SCL_SECURE_NO_WARNINGS;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions);_WEBSOCKETPP_NOEXCEPT_;SIO_TLS</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>d:\OpenSSL-Win64\include\;D:\common\boost_1_64_0;d:\rtc\third\socket.io-client-cpp\lib\rapidjson\include;d:\rtc\third\socket.io-client-cpp\lib\websocketpp;d:\rtc\third\json\include\</AdditionalIncludeDirectories>
-      <UndefinePreprocessorDefinitions>SIO_TLS</UndefinePreprocessorDefinitions>
+      <AdditionalIncludeDirectories>d:\OpenSSL-Win32\include\;D:\common\boost_1_64_0;lib\rapidjson\include;lib\websocketpp;d:\rtc\third\json\include\</AdditionalIncludeDirectories>
+      <UndefinePreprocessorDefinitions>
+      </UndefinePreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>openssl.lib;libcrypto.lib;libcrypto32MDd.lib;libssl32MDd.lib; libboost_system-vc141-mt-gd-1_64.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>D:\common\boost_1_64_0\debug\lib;%(AdditionalLibraryDirectories);d:\OpenSSL-Win32\lib\VC\static;d:\OpenSSL-Win32\lib\</AdditionalLibraryDirectories>
+      <AdditionalDependencies>openssl.lib;libcrypto.lib;libcrypto32MDd.lib;libssl32MDd.lib;libboost_system-vc141-mt-gd-1_64.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>D:\common\boost_1_64_0\lib32-msvc-14.1;%(AdditionalLibraryDirectories);d:\OpenSSL-Win32\lib\VC\static;d:\OpenSSL-Win32\lib\</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
